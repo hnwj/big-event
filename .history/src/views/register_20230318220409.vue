@@ -1,0 +1,67 @@
+<template>
+  <!-- 注册整体盒子 -->
+  <div class="reg-container">
+    <div class="reg-box">
+      <div class="title-box"></div>
+      <!-- 注册部分 -->
+      <el-form :model="regForm" ref="regRules">
+        <el-form-item prop="username">
+          <el-input v-model="regForm.username" />
+        </el-form-item>
+        <el-form-item prop="password">
+          <el-input type="password" v-model="regForm.password" />
+        </el-form-item>
+        <el-form-item prop="repassword">
+          <el-input type="password" v-model="regForm.repassword" />
+        </el-form-item>
+        <el-form-item>
+          <el-button type="primary" class="btn-reg">注册</el-button>
+          <el-link type="info">登录</el-link>
+        </el-form-item>
+      </el-form>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  data () {
+    return {
+      regForm: {
+        username: '',
+        password: '',
+        repassword: ''
+      },
+      // 注册表单的验证规则对象
+      regRules: {}
+    }
+  },
+}
+</script>
+
+<style lang="less" scoped>
+.reg-container {
+  background: url('../../src/assets/images/bg.jpg') no-repeat;
+  background-size: cover;
+  height: 100%;
+  .reg-box {
+    position: absolute;
+    width: 400px;
+    height: 335px;
+    background-color: #fff;
+    border-radius: 3px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 0 30px;
+    .title-box {
+      height: 60px;
+      background: url('../../src/assets/images/login_title.png') no-repeat
+        center;
+    }
+    .btn-reg {
+      width: 100%;
+    }
+  }
+}
+</style>
